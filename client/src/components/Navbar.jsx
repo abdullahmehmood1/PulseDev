@@ -68,7 +68,7 @@ export default function Navbar() {
         {/* ── Col 3: CALL NOW (right) + Hamburger ── */}
         <div className="navbar__right">
           <NavLink to="/booking" className="nav-call-now">
-            CALL NOW
+            <span>CALL NOW</span>
           </NavLink>
           <button
             className="navbar__hamburger"
@@ -105,7 +105,7 @@ export default function Navbar() {
               className="navbar__mobile-link navbar__mobile-callnow"
               onClick={() => setOpen(false)}
             >
-              CALL NOW
+              <span>CALL NOW</span>
             </Link>
           </motion.nav>
         )}

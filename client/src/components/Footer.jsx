@@ -3,6 +3,7 @@ import {
   TbBrandGithub, TbBrandTwitter, TbBrandLinkedin,
   TbMapPin, TbMail, TbPhone
 } from "react-icons/tb";
+import { CONTACT } from "../config/contactInfo";
 
 const navCols = [
   {
@@ -77,15 +78,21 @@ export default function Footer() {
           <div className="footer__col-title">Contact</div>
           <div className="footer__contact-item">
             <TbMail size={14} className="footer__contact-icon" />
-            <span>hello@pulsedev.io</span>
+            <span>{CONTACT.email}</span>
           </div>
           <div className="footer__contact-item">
             <TbPhone size={14} className="footer__contact-icon" />
-            <span>+1 (888) 123-4567</span>
+            {CONTACT.phone ? (
+              <a href={`tel:${CONTACT.phone}`} style={{ color: "inherit", textDecoration: "none" }}>
+                <span>{CONTACT.phone}</span>
+              </a>
+            ) : (
+              <span>{CONTACT.phoneDisplay}</span>
+            )}
           </div>
           <div className="footer__contact-item">
             <TbMapPin size={14} className="footer__contact-icon" />
-            <span>Remote-First · Global Team</span>
+            <span>{CONTACT.location}</span>
           </div>
         </div>
       </div>
@@ -101,6 +108,7 @@ export default function Footer() {
           <Link to="/#about">About</Link>
           <Link to="/work">Work</Link>
           <Link to="/#contact">Contact</Link>
+          <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
       </div>
     </footer>

@@ -6,13 +6,13 @@ import { TbCheck, TbArrowRight } from "react-icons/tb";
 const plans = [
   {
     plan: "Starter",
-    name: "Launch Package",
+    name: "Project Build",
     tagline: "For MVPs and early-stage startups",
-    monthly: "$4,800",
-    annual: "$4,200",
-    period: "/ month",
+    monthly: "$3,500", // placeholder for founders to confirm
+    annual: "$3,500", // placeholder for founders to confirm
+    period: "per project",
     features: [
-      "Up to 2 engineers",
+      "Direct access to both founding engineers",
       "1 product sprint per week",
       "Web or mobile application",
       "Basic CI/CD pipeline",
@@ -23,13 +23,13 @@ const plans = [
   {
     plan: "Growth",
     name: "Growth Retainer",
-    tagline: "For scaling products and teams",
-    monthly: "$9,500",
-    annual: "$8,200",
+    tagline: "For teams ready for ongoing engineering support",
+    monthly: "$4,500", // placeholder for founders to confirm
+    annual: "$4,000", // placeholder for founders to confirm
     period: "/ month",
     featured: true,
     features: [
-      "Up to 5 engineers",
+      "Direct access to both founding engineers",
       "Dedicated project manager",
       "Full-stack web + mobile",
       "CI/CD + cloud infrastructure",
@@ -46,13 +46,12 @@ const plans = [
     annual: "Custom",
     period: "contact us",
     features: [
-      "Unlimited engineers",
-      "Dedicated CTO advisory",
+      "Direct access to both founding engineers",
+      "Dedicated senior engineer",
       "Multi-platform delivery",
       "SOC 2 & compliance support",
       "24/7 SLA monitoring",
-      "Quarterly on-site sessions",
-      "White-label options",
+      "Custom SLA terms",
     ],
   },
 ];

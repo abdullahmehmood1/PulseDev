@@ -12,13 +12,48 @@ import ProcessPage from "./pages/ProcessPage.jsx";
 import PricingPage from "./pages/PricingPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
+import AdminLoginPage from "./pages/AdminLoginPage.jsx";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
+import RequireAuth from "./components/RequireAuth.jsx";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace("#", ""));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  // Global click listener to fix React Router hash clicking when already on the same page
+  useEffect(() => {
+    const handleGlobalClick = (e) => {
+      const target = e.target.closest("a");
+      if (target) {
+        const href = target.getAttribute("href");
+        if (href && href.includes("#")) {
+          const id = href.split("#")[1];
+          const element = document.getElementById(id);
+          if (element) {
+            // Let React router update the URL, but we handle the smooth scroll natively
+            setTimeout(() => {
+              element.scrollIntoView({ behavior: "smooth" });
+            }, 0);
+          }
+        }
+      }
+    };
+    
+    document.addEventListener("click", handleGlobalClick);
+    return () => document.removeEventListener("click", handleGlobalClick);
+  }, []);
 
   return null;
 }
@@ -51,7 +86,9 @@ export default function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/contact" element={<BookingPage />} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin" element={<RequireAuth><AdminPage /></RequireAuth>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
       </main>
       <Footer />

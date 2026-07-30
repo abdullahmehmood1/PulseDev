@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Process from "../components/Process";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,6 +7,10 @@ import { TbArrowRight } from "react-icons/tb";
 export default function ProcessPage() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <Helmet>
+        <title>Process | PulseDev</title>
+        <meta name="description" content="Learn how we plan, code, test, deploy, and maintain software with zero friction and complete visibility." />
+      </Helmet>
       <div className="page-hero">
         <div className="page-hero__inner">
           <div className="page-hero__eyebrow">Engineering Lifecycle</div>

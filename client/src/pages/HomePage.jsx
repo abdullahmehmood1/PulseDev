@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
 import Partners from "../components/Partners";
 import Services from "../components/Services";
@@ -16,6 +17,10 @@ export default function HomePage() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
+      <Helmet>
+        <title>Home | PulseDev</title>
+        <meta name="description" content="PulseDev builds high-performance web applications, mobile apps, and cloud infrastructure for startups and enterprises — from architecture to production." />
+      </Helmet>
       {/* 1. Hero — full-screen video background */}
       <Hero />
 

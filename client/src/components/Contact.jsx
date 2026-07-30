@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { sendContactMessage } from "../api/api";
 import { TbSend, TbCheck, TbPhone } from "react-icons/tb";
+import { CONTACT } from "../config/contactInfo";
 
 const miniCards = [
   { title: "Web & Mobile", sub: "Full-stack product teams" },
@@ -48,9 +50,9 @@ export default function Contact() {
               <TbPhone size={20} />
             </div>
             <div>
-              <div className="contact__phone-label">Call PulseDev</div>
-              <a href="mailto:hello@pulsedev.io" className="contact__phone-num">
-                hello@pulsedev.io
+              <div className="contact__phone-label">Email PulseDev</div>
+              <a href={`mailto:${CONTACT.email}`} className="contact__phone-num">
+                {CONTACT.email}
               </a>
             </div>
           </div>
@@ -154,7 +156,11 @@ export default function Contact() {
                   </p>
                 )}
 
-                <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }} disabled={status === "sending"}>
+                <p style={{ color: "var(--text-muted)", fontSize: 12, textAlign: "center", marginTop: 8 }}>
+                  By submitting this form, you agree to our <Link to="/privacy-policy" style={{ color: "var(--blue-accent)", textDecoration: "none" }}>Privacy Policy</Link>.
+                </p>
+
+                <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center", marginTop: 8 }} disabled={status === "sending"}>
                   {status === "sending" ? "Sending..." : <><TbSend size={15} /> SUBMIT</>}
                 </button>
               </motion.form>

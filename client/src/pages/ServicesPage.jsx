@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Services from "../components/Services";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -25,6 +26,10 @@ const techStacks = [
 export default function ServicesPage() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <Helmet>
+        <title>Services | PulseDev</title>
+        <meta name="description" content="From single-page web applications to complex multi-tenant SaaS platforms and cloud security infrastructure — we deliver end to end." />
+      </Helmet>
       {/* Page Hero */}
       <div className="page-hero">
         <div className="page-hero__inner">

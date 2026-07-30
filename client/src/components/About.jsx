@@ -26,15 +26,7 @@ export default function About() {
       background: "#eaf0f7",          /* Light ice background like BP Marine */
       padding: "90px 0",
     }}>
-      <div style={{
-        maxWidth: 1280,
-        margin: "0 auto",
-        padding: "0 40px",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 40,
-        alignItems: "start",
-      }}>
+      <div className="about__grid page-content__inner">
 
         {/* ══ LEFT COLUMN: Image card + Dark SINCE 2020 badge + 3 Stat cards ══ */}
         <motion.div
@@ -117,11 +109,7 @@ export default function About() {
           </div>
 
           {/* 3 Stat Cards Row below image */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 14,
-          }}>
+          <div className="about__stat-grid">
             {statCards.map((s) => (
               <div
                 key={s.title}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -82,13 +83,17 @@ ${form.message}`,
         });
       } catch {}
     } catch (err) {
-      setErrorMsg(err.response?.data?.error || "Could not submit. Please try again.");
+      setErrorMsg(err.error || err.message || "Could not submit. Please try again.");
       setStatus("error");
     }
   };
 
   return (
     <div style={{ minHeight: "85vh", background: "var(--navy-deep)", paddingBottom: 80 }}>
+      <Helmet>
+        <title>Booking | PulseDev</title>
+        <meta name="description" content="Select your requirements, specify project goals, and reserve a 30-minute scoping call with a senior solutions architect." />
+      </Helmet>
       {/* Page Hero */}
       <div className="page-hero">
         <div className="page-hero__inner">
@@ -112,7 +117,7 @@ ${form.message}`,
         </div>
       </div>
 
-      <div style={{ maxWidth: 860, margin: "0 auto", padding: "48px 40px 0" }}>
+      <div className="booking__inner">
         {status === "success" ? (
           /* Confirmation Screen with Dual Buttons */
           <motion.div
@@ -122,8 +127,8 @@ ${form.message}`,
               ...cardStyle,
               border: "1px solid rgba(34,197,94,0.3)",
               textAlign: "center",
-              padding: 56,
             }}
+            className="booking__success-card"
           >
             <div style={{
               width: 64, height: 64, borderRadius: "50%",
@@ -144,16 +149,16 @@ ${form.message}`,
             </p>
             {/* Dual Buttons: Steel Navy Gradient + Pure White */}
             <div style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-              <Link to="/" className="btn-primary">RETURN TO HOME</Link>
-              <Link to="/work" className="btn-white">VIEW CASE STUDIES</Link>
+              <Link to="/" className="btn-primary" style={{ width: "100%" }}>RETURN TO HOME</Link>
+              <Link to="/work" className="btn-white" style={{ width: "100%" }}>VIEW CASE STUDIES</Link>
             </div>
           </motion.div>
         ) : (
           /* Booking Form */
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <form onSubmit={handleSubmit} className="booking__form">
 
             {/* Step 1 */}
-            <div style={cardStyle}>
+            <div style={cardStyle} className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
                 <div style={stepStyle}>1</div>
                 Select Primary Capability
@@ -193,7 +198,7 @@ ${form.message}`,
             </div>
 
             {/* Step 2 */}
-            <div style={cardStyle}>
+            <div style={cardStyle} className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
                 <div style={stepStyle}>2</div>
                 Target Project Budget
@@ -225,7 +230,7 @@ ${form.message}`,
             </div>
 
             {/* Step 3 */}
-            <div style={cardStyle}>
+            <div style={cardStyle} className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
                 <div style={stepStyle}>3</div>
                 Contact &amp; Project Details
@@ -235,7 +240,7 @@ ${form.message}`,
               </p>
 
               <div className="dark-form" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <div className="booking__form-row">
                   <div>
                     <label>Full Name <span style={{ color: "var(--blue-accent)", fontSize: 9 }}>(Required)</span></label>
                     <input type="text" name="name" placeholder="John Smith" value={form.name} onChange={handleChange} required />
@@ -246,7 +251,7 @@ ${form.message}`,
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <div className="booking__form-row">
                   <div>
                     <label>Phone / WhatsApp (Optional)</label>
                     <input type="text" name="phone" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} />
@@ -267,6 +272,10 @@ ${form.message}`,
                 <p style={{ color: "#f87171", fontSize: 13, marginTop: 12, fontWeight: 600 }}>{errorMsg}</p>
               )}
 
+              <p style={{ color: "var(--text-muted)", fontSize: 12, textAlign: "center", marginTop: 8 }}>
+                By submitting this form, you agree to our <Link to="/privacy-policy" style={{ color: "var(--blue-accent)", textDecoration: "none" }}>Privacy Policy</Link>.
+              </p>
+
               <button
                 type="submit"
                 className="btn-primary"
@@ -280,11 +289,6 @@ ${form.message}`,
         )}
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          form div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

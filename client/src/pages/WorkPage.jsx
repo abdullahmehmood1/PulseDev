@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Work from "../components/Work";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,6 +7,10 @@ import { TbArrowRight } from "react-icons/tb";
 export default function WorkPage() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <Helmet>
+        <title>Work | PulseDev</title>
+        <meta name="description" content="Explore how we help founders, startups, and enterprises design, build, and deploy software products." />
+      </Helmet>
       {/* Page Hero */}
       <div className="page-hero">
         <div className="page-hero__inner">

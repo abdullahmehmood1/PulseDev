@@ -659,6 +659,13 @@ h1, h2, h3, .oswald {
   .work__header { grid-template-columns: 1fr; gap: 20px; }
 }
 
+@media (max-width: 768px) {
+  .work__card-overlay {
+    opacity: 1;
+    background: linear-gradient(0deg, rgba(10,15,29,0.95) 0%, rgba(10,15,29,0.3) 70%, transparent 100%);
+  }
+}
+
 @media (max-width: 600px) {
   .work__grid { grid-template-columns: 1fr; padding: 0 20px; }
   .work__header { padding: 0 20px; }
@@ -1537,4 +1544,271 @@ h1, h2, h3, .oswald {
   color: var(--text-body);
   margin-bottom: 6px;
   display: block;
+}
+
+/* ====================================================
+   SERVICES COMPONENT SPECIFIC
+   ==================================================== */
+.services__header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-end;
+  margin-bottom: 44px;
+}
+.services__frame {
+  background: #dce4ee;
+  border-radius: 24px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 330px 1fr 1fr;
+  gap: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  border: 1px solid #ffffff;
+}
+
+/* ====================================================
+   ABOUT COMPONENT SPECIFIC
+   ==================================================== */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.about__stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 960px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .about__stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====================================================
+   BOOKING COMPONENT SPECIFIC
+   ==================================================== */
+.booking__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 40px 0;
+}
+.booking__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.booking__success-card {
+  padding: 56px;
+}
+
+@media (max-width: 768px) {
+  .booking__form-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .booking__inner {
+    padding: 32px 16px 0;
+  }
+  .booking__success-card {
+    padding: 32px 20px;
+  }
+  .booking__card {
+    padding: 24px 20px !important;
+  }
+}
+
+/* ====================================================
+   COMPREHENSIVE MOBILE OPTIMIZATIONS (320px - 768px)
+   ==================================================== */
+@media (max-width: 960px) {
+  .services__frame {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .services__header-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Global Paddings */
+  .navbar__inner,
+  .page-hero__inner,
+  .page-content__inner {
+    padding: 0 20px !important;
+  }
+
+  .hero__inner,
+  .work__header,
+  .work__grid,
+  .work__cta,
+  .process__inner,
+  .pricing__inner,
+  .contact__inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .page-hero__title {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile L and below */
+  .navbar__inner,
+  .page-hero__inner,
+  .page-content__inner {
+    padding: 0 16px !important;
+  }
+
+  .hero__inner,
+  .work__header,
+  .work__grid,
+  .work__cta,
+  .process__inner,
+  .pricing__inner,
+  .contact__inner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hero Section */
+  .hero__title {
+    font-size: clamp(30px, 10vw, 42px);
+    line-height: 1.1;
+  }
+  
+  .hero__desc {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  
+  .hero__btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .hero__btns .btn-primary, 
+  .hero__btns .btn-white {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__badge {
+    margin-right: 12px;
+    padding-right: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* Contact Form adjustments */
+  .contact__inner {
+    margin: 0 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .contact__info, .contact__form-wrap {
+    padding: 32px 20px !important;
+  }
+  
+  .contact__mini-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Footer adjustments */
+  .footer__main {
+    padding: 40px 16px 32px;
+    gap: 32px;
+  }
+  .footer__bar {
+    padding: 20px 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .footer__bar-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Typography scale downs */
+  .work__header-title,
+  .process__title,
+  .pricing__title,
+  .contact__info-title {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  /* Buttons */
+  .btn-primary, .btn-white {
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  /* Mobile M & S */
+  .hero__title {
+    font-size: 32px;
+  }
+  
+  .pricing__amount {
+    font-size: 32px;
+  }
+  
+  .contact__phone-num {
+    font-size: 16px;
+  }
+  
+  .contact__phone-box {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .contact__phone-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .pricing__card {
+    padding: 32px 24px;
+  }
+  
+  .services__frame {
+    padding: 12px;
+  }
+}
+
+/* ====================================================
+   ADMIN PAGE RESPONSIVENESS
+   ==================================================== */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
 }

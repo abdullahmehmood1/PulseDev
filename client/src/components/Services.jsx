@@ -103,16 +103,7 @@ export default function Services() {
       padding: "90px 0 60px",
     }}>
       {/* ── Section Header ── */}
-      <div style={{
-        maxWidth: 1280,
-        margin: "0 auto",
-        padding: "0 40px",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 60,
-        alignItems: "flex-end",
-        marginBottom: 44,
-      }}>
+      <div className="services__header-grid page-content__inner">
         <div>
           <div style={{
             display: "flex",
@@ -156,21 +147,8 @@ export default function Services() {
       </div>
 
       {/* ── Outer Silver Frame ── */}
-      <div style={{
-        maxWidth: 1280,
-        margin: "0 auto",
-        padding: "0 40px",
-      }}>
-        <div style={{
-          background: "#dce4ee",
-          borderRadius: 24,
-          padding: 16,
-          display: "grid",
-          gridTemplateColumns: "330px 1fr 1fr",
-          gap: 16,
-          boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
-          border: "1px solid #ffffff",
-        }}>
+      <div className="page-content__inner">
+        <div className="services__frame">
 
           {/* ── COLUMN 1: Tabs ── */}
           <div style={{
@@ -274,16 +252,18 @@ export default function Services() {
             minHeight: 460,
             background: "#0d1827",
           }}>
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               <motion.img
                 key={svc.img}
                 src={svc.img}
                 alt={svc.name}
-                initial={{ opacity: 0, scale: 1.03 }}
+                initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
                 style={{
+                  position: "absolute",
+                  inset: 0,
                   width: "100%",
                   height: "100%",
                   objectFit: "cover",
@@ -324,23 +304,25 @@ export default function Services() {
           </div>
 
           {/* ── COLUMN 3: Right Detail Pane ── */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={svc.name}
-              initial={{ opacity: 0, x: 8 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -8 }}
-              transition={{ duration: 0.25 }}
-              style={{
-                background: "#ffffff",
-                borderRadius: 16,
-                padding: "44px 38px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-              }}
-            >
+          <div style={{ position: "relative" }}>
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={svc.name}
+                initial={{ opacity: 0, x: 8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{ duration: 0.25 }}
+                style={{
+                  background: "#ffffff",
+                  borderRadius: 16,
+                  padding: "44px 38px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  height: "100%",
+                }}
+              >
               <div>
                 <h3 style={{
                   fontFamily: "Oswald, sans-serif",
@@ -398,7 +380,8 @@ export default function Services() {
                 GET IN TOUCH <TbArrowRight size={14} />
               </Link>
             </motion.div>
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

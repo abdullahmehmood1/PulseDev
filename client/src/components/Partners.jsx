@@ -66,7 +66,7 @@ export default function Partners() {
       padding: "40px 0",
       borderBottom: "1px solid #e8eef4",
     }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 40px" }}>
+      <div className="page-content__inner">
         {/* Title — exactly like BP Marine */}
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
