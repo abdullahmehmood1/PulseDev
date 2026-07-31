@@ -117,7 +117,7 @@ export default function Pricing() {
               </ul>
 
               <Link
-                to="/#contact"
+                to={p.plan.toLowerCase() === "enterprise" ? "/#contact" : `/?plan=${p.plan.toLowerCase()}#contact`}
                 className="btn-primary"
                 style={{
                   display: "flex",

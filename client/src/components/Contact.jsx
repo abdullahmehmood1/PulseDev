@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { sendContactMessage } from "../api/api";
 import { TbSend, TbCheck, TbPhone } from "react-icons/tb";
 import { CONTACT } from "../config/contactInfo";
@@ -15,6 +15,25 @@ const miniCards = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", service: "", message: "" });
   const [status, setStatus] = useState("idle");
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+
+    if (plan === "starter") {
+      setForm((prev) => ({
+        ...prev,
+        message: "Hi PulseDev team, I am interested in the Project Build plan to bring my MVP to life.\n\nHere is a brief overview of what I want to build: [Describe your app idea here]\n\nMy target launch timeline is around [Timeline]. Please let me know what additional details you need from me to finalize the scope and start development."
+      }));
+    } else if (plan === "growth") {
+      setForm((prev) => ({
+        ...prev,
+        service: "retainer",
+        message: "Hi PulseDev team, I am interested in the Growth Retainer for ongoing engineering support.\n\nMy current tech stack is [List your stack, e.g., React/Node/AWS], and our primary engineering bottleneck right now is [Describe your current challenge].\n\nPlease let me know how we can get started and integrate you into our workflow."
+      }));
+    }
+  }, [location.search]);
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
