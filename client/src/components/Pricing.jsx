@@ -8,9 +8,9 @@ const plans = [
     plan: "Starter",
     name: "Project Build",
     tagline: "For MVPs and early-stage startups",
-    monthly: "$3,500", // placeholder for founders to confirm
-    annual: "$3,500", // placeholder for founders to confirm
-    period: "per project",
+    monthly: "$2,000",
+    annual: "$2,000",
+    period: "starting at",
     features: [
       "Direct access to both founding engineers",
       "1 product sprint per week",
@@ -24,8 +24,8 @@ const plans = [
     plan: "Growth",
     name: "Growth Retainer",
     tagline: "For teams ready for ongoing engineering support",
-    monthly: "$4,500", // placeholder for founders to confirm
-    annual: "$4,000", // placeholder for founders to confirm
+    monthly: "$1,500",
+    annual: "$1,290",
     period: "/ month",
     featured: true,
     features: [
