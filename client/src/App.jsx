@@ -8,6 +8,7 @@ import ParticleBackground from "./components/ParticleBackground.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
 import WorkPage from "./pages/WorkPage.jsx";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage.jsx";
 import ProcessPage from "./pages/ProcessPage.jsx";
 import PricingPage from "./pages/PricingPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/work" element={<WorkPage />} />
+          <Route path="/project/:id" element={<ProjectDetailsPage />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/booking" element={<BookingPage />} />

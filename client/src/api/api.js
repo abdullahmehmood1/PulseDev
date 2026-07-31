@@ -1,7 +1,46 @@
 import { supabase } from "../lib/supabaseClient";
 
 export const getServices = async () => [];
-export const getProjects = async () => [];
+export const getProjects = async (limit = null) => {
+  try {
+    let query = supabase.from('projects').select('*').order('sort_order', { ascending: true });
+    
+    if (limit) {
+      query = query.eq('is_featured', true).limit(limit);
+    }
+    
+    const { data, error } = await query;
+    if (error) throw error;
+    
+    return { data };
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return { data: [] };
+  }
+};
+
+export const getProjectById = async (id) => {
+  try {
+    const { data, error } = await supabase.from('projects').select('*').eq('id', id).single();
+    if (error) throw error;
+    return { data };
+  } catch (error) {
+    console.error("Error fetching project:", error);
+    return { data: null };
+  }
+};
+
+export const addProject = async (payload) => {
+  const { error } = await supabase.from('projects').insert([payload]);
+  if (error) throw error;
+  return { success: true };
+};
+
+export const deleteProject = async (id) => {
+  const { error } = await supabase.from('projects').delete().eq('id', id);
+  if (error) throw error;
+  return { success: true };
+};
 
 export const sendContactMessage = async (payload) => {
   try {
