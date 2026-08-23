@@ -71,6 +71,10 @@ export default function Contact() {
     try {
       await sendContactMessage(form);
       setStatus("success");
+      setTimeout(() => {
+        const formEl = document.getElementById("contact-form-wrap");
+        if (formEl) formEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
     } catch {
       setStatus("error");
     }
@@ -115,7 +119,7 @@ export default function Contact() {
         </div>
 
         {/* RIGHT — light form */}
-        <div className="contact__form-wrap">
+        <div className="contact__form-wrap" id="contact-form-wrap">
           <AnimatePresence mode="wait">
             {status === "success" ? (
               <motion.div
@@ -128,7 +132,8 @@ export default function Contact() {
                   flexDirection: "column", 
                   alignItems: "center", 
                   justifyContent: "center", 
-                  height: "100%", 
+                  height: "100%",
+                  minHeight: 450,
                   textAlign: "center" 
                 }}
               >
