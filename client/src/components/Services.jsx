@@ -8,6 +8,7 @@ import {
 
 const services = [
   {
+    id: "web",
     num: "SERVICE 01",
     icon: <TbWorld size={18} />,
     name: "Web Development",
@@ -22,6 +23,7 @@ const services = [
     img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80",
   },
   {
+    id: "mobile",
     num: "SERVICE 02",
     icon: <TbDeviceMobile size={18} />,
     name: "Mobile Apps",
@@ -36,6 +38,7 @@ const services = [
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80",
   },
   {
+    id: "backend",
     num: "SERVICE 03",
     icon: <TbServer2 size={18} />,
     name: "Backend & APIs",
@@ -50,6 +53,7 @@ const services = [
     img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80",
   },
   {
+    id: "security",
     num: "SERVICE 04",
     icon: <TbShieldLock size={18} />,
     name: "Security",
@@ -64,6 +68,7 @@ const services = [
     img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80",
   },
   {
+    id: "cloud",
     num: "SERVICE 05",
     icon: <TbCloud size={18} />,
     name: "Cloud & DevOps",
@@ -78,6 +83,7 @@ const services = [
     img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80",
   },
   {
+    id: "retainer",
     num: "SERVICE 06",
     icon: <TbRefresh size={18} />,
     name: "Retainer Support",
@@ -376,7 +382,7 @@ export default function Services() {
               </div>
 
               {/* Steel Navy Gradient Button with hover animation */}
-              <Link to="/#contact" className="btn-primary" style={{ alignSelf: "flex-start" }}>
+              <Link to={`/?service=${svc.id}#contact`} className="btn-primary" style={{ alignSelf: "flex-start" }}>
                 GET IN TOUCH <TbArrowRight size={14} />
               </Link>
             </motion.div>

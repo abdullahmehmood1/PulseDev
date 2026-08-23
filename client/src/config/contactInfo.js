@@ -1,5 +1,5 @@
 export const CONTACT = {
-  email: "hello@pulsedev.io",
+  email: "leads@pulsedev.dev",
   phone: null,
   phoneDisplay: "Coming soon",
   location: "Remote-First · Global Team"

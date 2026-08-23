@@ -20,6 +20,7 @@ export default function Contact() {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const plan = params.get("plan");
+    const service = params.get("service");
 
     if (plan === "starter") {
       setForm((prev) => ({
@@ -32,6 +33,23 @@ export default function Contact() {
         service: "retainer",
         message: "Hi PulseDev team, I am interested in the Growth Retainer for ongoing engineering support.\n\nMy current tech stack is [List your stack, e.g., React/Node/AWS], and our primary engineering bottleneck right now is [Describe your current challenge].\n\nPlease let me know how we can get started and integrate you into our workflow."
       }));
+    } else if (service) {
+      const messages = {
+        web: "Hi PulseDev team, I am interested in your Web Development services.\n\nWe are looking to design and build a high-performance web application optimised for speed, scale, and SEO.\n\nHere is a brief overview of what we want to build: [Describe your web project requirements here]",
+        mobile: "Hi PulseDev team, I am interested in your Mobile App development services.\n\nWe need a native or cross-platform mobile application that delivers a seamless user experience across devices.\n\nHere is a brief overview of what we want to build: [Describe your mobile app idea here]",
+        backend: "Hi PulseDev team, I am interested in your Backend & APIs services.\n\nWe need a robust, scalable backend system and API built for reliability and performance at scale.\n\nHere is a brief overview of our infrastructure needs: [Describe your backend requirements here]",
+        security: "Hi PulseDev team, I am interested in your Security services.\n\nWe are looking for an end-to-end security review, penetration testing, or implementation of enterprise-grade security measures to protect our users and data.\n\nHere is a brief overview of our current stack and concerns: [Describe your security requirements here]",
+        cloud: "Hi PulseDev team, I am interested in your Cloud & DevOps services.\n\nWe need help with infrastructure as code, containerisation, and automated CI/CD pipelines so our team can ship faster and stay reliable.\n\nHere is a brief overview of our current infrastructure challenges: [Describe your DevOps needs here]",
+        retainer: "Hi PulseDev team, I am interested in Retainer Support.\n\nWe are looking for continuous improvement, bug fixing, monitoring, and feature development through flexible monthly retainers tailored to our team's velocity.\n\nHere is a brief overview of our current product and what we need help with: [Describe your ongoing support needs here]"
+      };
+      
+      if (messages[service]) {
+        setForm((prev) => ({
+          ...prev,
+          service: service,
+          message: messages[service]
+        }));
+      }
     }
   }, [location.search]);
 
