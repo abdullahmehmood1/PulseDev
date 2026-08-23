@@ -5,6 +5,8 @@ import {
 } from "react-icons/tb";
 import { CONTACT } from "../config/contactInfo";
 
+const SOCIALS_ENABLED = { github: false, twitter: false, linkedin: false };
+
 const navCols = [
   {
     title: "Navigation",
@@ -20,12 +22,12 @@ const navCols = [
   {
     title: "Services",
     links: [
-      { label: "Web Development", to: "/services" },
-      { label: "Mobile Apps", to: "/services" },
-      { label: "Backend & APIs", to: "/services" },
-      { label: "Cloud & DevOps", to: "/services" },
-      { label: "Security Audits", to: "/services" },
-      { label: "Retainers", to: "/pricing" },
+      { label: "Web Development", to: "/services?tab=web#services" },
+      { label: "Mobile Apps", to: "/services?tab=mobile#services" },
+      { label: "Backend & APIs", to: "/services?tab=backend#services" },
+      { label: "Cloud & DevOps", to: "/services?tab=cloud#services" },
+      { label: "Security Audits", to: "/services?tab=security#services" },
+      { label: "Retainers", to: "/services?tab=retainer#services" },
     ],
   },
 ];
@@ -47,15 +49,21 @@ export default function Footer() {
             platforms, cloud infrastructure, and ongoing engineering support.
           </p>
           <div className="footer__socials">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="footer__social">
-              <TbBrandGithub size={16} />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="footer__social">
-              <TbBrandTwitter size={16} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer__social">
-              <TbBrandLinkedin size={16} />
-            </a>
+            {SOCIALS_ENABLED.github && (
+              <a href="REPLACE_WITH_REAL_GITHUB_URL" target="_blank" rel="noreferrer" className="footer__social">
+                <TbBrandGithub size={16} />
+              </a>
+            )}
+            {SOCIALS_ENABLED.twitter && (
+              <a href="REPLACE_WITH_REAL_TWITTER_URL" target="_blank" rel="noreferrer" className="footer__social">
+                <TbBrandTwitter size={16} />
+              </a>
+            )}
+            {SOCIALS_ENABLED.linkedin && (
+              <a href="REPLACE_WITH_REAL_LINKEDIN_URL" target="_blank" rel="noreferrer" className="footer__social">
+                <TbBrandLinkedin size={16} />
+              </a>
+            )}
           </div>
         </div>
 

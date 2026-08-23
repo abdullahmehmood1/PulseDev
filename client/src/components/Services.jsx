@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   TbWorld, TbDeviceMobile, TbServer2, TbShieldLock,
@@ -9,6 +9,7 @@ import {
 const services = [
   {
     id: "web",
+    slug: "web",
     num: "SERVICE 01",
     icon: <TbWorld size={18} />,
     name: "Web Development",
@@ -24,6 +25,7 @@ const services = [
   },
   {
     id: "mobile",
+    slug: "mobile",
     num: "SERVICE 02",
     icon: <TbDeviceMobile size={18} />,
     name: "Mobile Apps",
@@ -39,6 +41,7 @@ const services = [
   },
   {
     id: "backend",
+    slug: "backend",
     num: "SERVICE 03",
     icon: <TbServer2 size={18} />,
     name: "Backend & APIs",
@@ -54,6 +57,7 @@ const services = [
   },
   {
     id: "security",
+    slug: "security",
     num: "SERVICE 04",
     icon: <TbShieldLock size={18} />,
     name: "Security",
@@ -69,6 +73,7 @@ const services = [
   },
   {
     id: "cloud",
+    slug: "cloud",
     num: "SERVICE 05",
     icon: <TbCloud size={18} />,
     name: "Cloud & DevOps",
@@ -84,6 +89,7 @@ const services = [
   },
   {
     id: "retainer",
+    slug: "retainer",
     num: "SERVICE 06",
     icon: <TbRefresh size={18} />,
     name: "Retainer Support",
@@ -101,6 +107,17 @@ const services = [
 
 export default function Services() {
   const [active, setActive] = useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tabParam = params.get("tab");
+    if (tabParam) {
+      const idx = services.findIndex(s => s.slug === tabParam);
+      if (idx !== -1) setActive(idx);
+    }
+  }, [location.search]);
+
   const svc = services[active];
 
   return (

@@ -22,12 +22,20 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      setTimeout(() => {
+      const scroll = () => {
         const element = document.getElementById(hash.replace("#", ""));
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100);
+      };
+      
+      // Try scrolling multiple times to account for async data loading (like the Work gallery)
+      // that causes layout shifts pushing the target anchor down the page.
+      const t1 = setTimeout(scroll, 50);
+      const t2 = setTimeout(scroll, 300);
+      const t3 = setTimeout(scroll, 800);
+      
+      return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     } else {
       window.scrollTo(0, 0);
     }

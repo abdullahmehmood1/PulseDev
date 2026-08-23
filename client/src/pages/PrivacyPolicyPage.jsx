@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { CONTACT } from "../config/contactInfo";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -57,7 +58,7 @@ export default function PrivacyPolicyPage() {
               Your Rights
             </h2>
             <p>
-              If you would like to request a copy of your information or ask us to delete it from our database, simply email us at <a href="mailto:hello@pulsedev.io" style={{ color: "var(--blue-accent)", textDecoration: "none" }}>hello@pulsedev.io</a> and we will process your request promptly.
+              If you would like to request a copy of your information or ask us to delete it from our database, simply email us at <a href={`mailto:${CONTACT.email}`} style={{ color: "var(--blue-accent)", textDecoration: "none" }}>{CONTACT.email}</a> and we will process your request promptly.
             </p>
           </div>
         </div>

@@ -13,7 +13,8 @@ export default function Work({ limit }) {
     setIsLoading(true);
     getProjects(limit)
       .then((res) => {
-        setProjects(res.data || []);
+        const filtered = (res.data || []).filter(p => p.title !== 'Bol');
+        setProjects(filtered);
       })
       .catch((err) => {
         console.error(err);
@@ -53,7 +54,7 @@ export default function Work({ limit }) {
           </p>
         </div>
       ) : (
-        <div className="work__grid">
+        <div className="work__grid" style={{ minHeight: isLoading ? "600px" : "auto" }}>
           {projects.map((p, i) => (
             <motion.div
               key={p.id}
