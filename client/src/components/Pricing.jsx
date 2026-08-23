@@ -8,29 +8,29 @@ const plans = [
     plan: "Starter",
     name: "Project Build",
     tagline: "For MVPs and early-stage startups",
-    monthly: "$2,000",
-    annual: "$2,000",
+    monthly: "$1,200",
+    annual: "$1,200",
     period: "starting at",
+    isOneTime: true,
     features: [
       "Direct access to both founding engineers",
       "1 product sprint per week",
       "Web or mobile application",
       "Basic CI/CD pipeline",
       "Email support",
-      "Monthly review call",
+      "2 weeks of post-launch bug-fix support",
     ],
   },
   {
     plan: "Growth",
     name: "Growth Retainer",
     tagline: "For teams ready for ongoing engineering support",
-    monthly: "$1,500",
-    annual: "$1,290",
+    monthly: "$1,000",
+    annual: "$860",
     period: "/ month",
     featured: true,
     features: [
-      "Direct access to both founding engineers",
-      "Dedicated project manager",
+      "One consistent point of contact",
       "Full-stack web + mobile",
       "CI/CD + cloud infrastructure",
       "Slack + priority support",
@@ -46,11 +46,10 @@ const plans = [
     annual: "Custom",
     period: "contact us",
     features: [
-      "Direct access to both founding engineers",
       "Dedicated senior engineer",
       "Multi-platform delivery",
-      "SOC 2 & compliance support",
-      "24/7 SLA monitoring",
+      "Security-first development practices",
+      "Priority incident response",
       "Custom SLA terms",
     ],
   },
@@ -106,6 +105,12 @@ export default function Pricing() {
                 </div>
                 <div className="pricing__period">{p.period}</div>
               </div>
+
+              {p.isOneTime && (
+                <div style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginTop: "-0.5rem", marginBottom: "1rem" }}>
+                  one-time project fee
+                </div>
+              )}
 
               <ul className="pricing__features" style={{ flex: 1 }}>
                 {p.features.map((f) => (
