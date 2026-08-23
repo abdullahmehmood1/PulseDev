@@ -86,7 +86,7 @@ const services = [
     desc: "Continuous improvement, bug fixing, monitoring, and feature development through flexible monthly retainers tailored to your team's velocity.",
     checks: [
       "Monthly feature development sprints",
-      "24/7 uptime monitoring & alerts",
+      "Priority incident response",
       "Dedicated Slack channel support",
     ],
     img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80",
@@ -94,7 +94,7 @@ const services = [
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const svc = services[active];
 
   return (
