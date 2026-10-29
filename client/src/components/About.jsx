@@ -118,11 +118,11 @@ export default function About() {
 
           {/* Dual CTAs at bottom */}
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            <Link to="/#contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               GET IN TOUCH <TbArrowRight size={14} />
             </Link>
 
-            <Link to="/#services" className="btn-secondary-glass">
+            <Link to="/product" className="btn-secondary-glass">
               VIEW SERVICES <TbArrowRight size={14} />
             </Link>
           </div>

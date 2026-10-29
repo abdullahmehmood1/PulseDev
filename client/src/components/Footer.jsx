@@ -12,22 +12,22 @@ const navCols = [
     title: "Navigation",
     links: [
       { label: "Home", to: "/" },
-      { label: "About", to: "/#about" },
-      { label: "Services", to: "/#services" },
-      { label: "Work", to: "/#work" },
-      { label: "Process", to: "/#process" },
-      { label: "Contact", to: "/#contact" },
+      { label: "Product", to: "/product" },
+      { label: "Case Studies", to: "/work" },
+      { label: "Process", to: "/process" },
+      { label: "Pricing", to: "/pricing" },
+      { label: "Contact", to: "/contact" },
     ],
   },
   {
     title: "Services",
     links: [
-      { label: "Web Development", to: "/services?tab=web#services" },
-      { label: "Mobile Apps", to: "/services?tab=mobile#services" },
-      { label: "Backend & APIs", to: "/services?tab=backend#services" },
-      { label: "Cloud & DevOps", to: "/services?tab=cloud#services" },
-      { label: "Security Audits", to: "/services?tab=security#services" },
-      { label: "Retainers", to: "/services?tab=retainer#services" },
+      { label: "Web Development", to: "/product?tab=web#services" },
+      { label: "Mobile Apps", to: "/product?tab=mobile#services" },
+      { label: "Backend & APIs", to: "/product?tab=backend#services" },
+      { label: "Cloud & DevOps", to: "/product?tab=cloud#services" },
+      { label: "Security Audits", to: "/product?tab=security#services" },
+      { label: "Retainers", to: "/product?tab=retainer#services" },
     ],
   },
 ];
@@ -105,17 +105,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar — BP Marine exact */}
+      {/* Bottom bar */}
       <div className="footer__bar">
         <span className="footer__bar-copy">
-          © {new Date().getFullYear()} PulseDev. All rights reserved.
+          &copy; {new Date().getFullYear()} PulseDev. All rights reserved.
         </span>
         <div className="footer__bar-links">
           <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/#about">About</Link>
-          <Link to="/work">Work</Link>
-          <Link to="/#contact">Contact</Link>
+          <Link to="/product">Product</Link>
+          <Link to="/work">Case Studies</Link>
+          <Link to="/contact">Contact</Link>
           <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
       </div>

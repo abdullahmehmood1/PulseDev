@@ -246,7 +246,7 @@ export default function Services() {
 
               {/* Luminous Gradient Button */}
               <Link
-                to={`/?service=${svc.id}#contact`}
+                to={`/contact?service=${svc.id}`}
                 className="btn-primary"
               >
                 GET IN TOUCH <TbArrowRight size={14} />

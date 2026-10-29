@@ -10,9 +10,9 @@ import {
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/#services", label: "Product" },
-  { to: "/#work", label: "Case Studies" },
-  { to: "/#contact", label: "Contact" },
+  { to: "/product", label: "Product" },
+  { to: "/work", label: "Case Studies" },
+  { to: "/contact", label: "Contact" },
 ];
 
 const sidebarItems = [
@@ -23,13 +23,13 @@ const sidebarItems = [
     icon: <TbHome size={20} />,
   },
   {
-    to: "/#services",
+    to: "/product",
     label: "Product & Services",
     sub: "Web, Mobile, Backend & Cloud",
     icon: <TbWorld size={20} />,
   },
   {
-    to: "/#work",
+    to: "/work",
     label: "Case Studies",
     sub: "Production applications shipped",
     icon: <TbBriefcase size={20} />,
@@ -47,7 +47,7 @@ const sidebarItems = [
     icon: <TbCurrencyDollar size={20} />,
   },
   {
-    to: "/#contact",
+    to: "/contact",
     label: "Contact & Inquiries",
     sub: "Start a conversation today",
     icon: <TbMail size={20} />,
@@ -87,7 +87,7 @@ export default function Navbar({ theme = "dark", toggleTheme }) {
     if (to.includes("#")) {
       return location.hash === `#${to.split("#")[1]}`;
     }
-    return location.pathname === to;
+    return location.pathname === to || location.pathname.startsWith(to + "/");
   };
 
   return (

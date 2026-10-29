@@ -100,7 +100,7 @@ export default function ServicesPage() {
           </div>
 
           <div style={{ marginTop: 56, textAlign: "center" }}>
-            <Link to="/#contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               Request Custom Proposal <TbArrowRight size={14} />
             </Link>
           </div>

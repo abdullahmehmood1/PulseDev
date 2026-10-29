@@ -26,7 +26,7 @@ export default function ProcessPage() {
 
       <section style={{ background: "var(--navy-deep)", padding: "60px 0" }}>
         <div className="page-content__inner" style={{ textAlign: "center" }}>
-          <Link to="/#contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             Schedule a Process Kickoff <TbArrowRight size={14} />
           </Link>
         </div>

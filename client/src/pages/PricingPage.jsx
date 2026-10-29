@@ -26,7 +26,7 @@ export default function PricingPage() {
 
       <section style={{ background: "var(--navy-mid)", padding: "60px 0" }}>
         <div className="page-content__inner" style={{ textAlign: "center" }}>
-          <Link to="/#contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             Request Custom Scope Estimate <TbArrowRight size={14} />
           </Link>
         </div>

@@ -12,6 +12,7 @@ import ProjectDetailsPage from "./pages/ProjectDetailsPage.jsx";
 import ProcessPage from "./pages/ProcessPage.jsx";
 import PricingPage from "./pages/PricingPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import AdminLoginPage from "./pages/AdminLoginPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
@@ -89,13 +90,15 @@ export default function App() {
       <main style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/product" element={<ServicesPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/work" element={<WorkPage />} />
+          <Route path="/case-studies" element={<WorkPage />} />
           <Route path="/project/:id" element={<ProjectDetailsPage />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/booking" element={<BookingPage />} />
-          <Route path="/contact" element={<BookingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<RequireAuth><AdminPage /></RequireAuth>} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

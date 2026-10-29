@@ -46,7 +46,7 @@ export default function WorkPage() {
             We build custom software tailored to your specs with a 100% guarantee
             on code quality and delivery timelines.
           </p>
-          <Link to="/#contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             Start Your Project Consultation <TbArrowRight size={14} />
           </Link>
         </div>
