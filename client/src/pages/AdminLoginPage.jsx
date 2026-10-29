@@ -66,7 +66,7 @@ export default function AdminLoginPage() {
           }}
         >
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-            <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(31,88,130,0.2)", border: "1px solid var(--blue-primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(2,132,199,0.12)", border: "1px solid var(--blue-primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <TbLock size={24} style={{ color: "var(--blue-accent)" }} />
             </div>
           </div>

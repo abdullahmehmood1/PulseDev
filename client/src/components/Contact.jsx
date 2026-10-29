@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { sendContactMessage } from "../api/api";
-import { TbSend, TbCheck, TbPhone, TbChevronDown } from "react-icons/tb";
+import { TbSend, TbCheck, TbMail, TbChevronDown } from "react-icons/tb";
 import { CONTACT } from "../config/contactInfo";
 
 const serviceMessages = {
@@ -98,7 +98,7 @@ export default function Contact() {
 
           <div className="contact__phone-box">
             <div className="contact__phone-icon">
-              <TbPhone size={20} />
+              <TbMail size={20} />
             </div>
             <div>
               <div className="contact__phone-label">Email PulseDev</div>
@@ -200,18 +200,10 @@ export default function Contact() {
 
                   <div 
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    style={{
-                      width: "100%", padding: "12px 14px", background: "var(--ice-white)",
-                      border: isDropdownOpen ? "1px solid var(--blue-primary)" : "1px solid #cbd5e1",
-                      borderRadius: "8px", fontFamily: "'Inter', sans-serif", fontSize: 14,
-                      color: "var(--text-dark)", cursor: "pointer", position: "relative",
-                      display: "flex", justifyContent: "space-between", alignItems: "center",
-                      boxShadow: isDropdownOpen ? "0 0 0 3px rgba(31, 88, 130, 0.15)" : "none",
-                      transition: "all 0.2s", zIndex: 10
-                    }}
+                    className={`contact__select-box ${isDropdownOpen ? "open" : ""}`}
                   >
-                    {serviceOptions.find(o => o.value === form.service)?.label || "Select a service..."}
-                    <TbChevronDown size={16} style={{ color: "#64748b", transform: isDropdownOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+                    <span>{serviceOptions.find(o => o.value === form.service)?.label || "Select a service..."}</span>
+                    <TbChevronDown size={16} className={`contact__select-arrow ${isDropdownOpen ? "open" : ""}`} />
 
                     <AnimatePresence>
                       {isDropdownOpen && (
@@ -220,11 +212,7 @@ export default function Contact() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -5 }}
                           transition={{ duration: 0.15 }}
-                          style={{
-                            position: "absolute", top: "100%", left: 0, right: 0, marginTop: 4,
-                            background: "#ffffff", border: "1px solid #cbd5e1", borderRadius: 8,
-                            boxShadow: "0 8px 30px rgba(0,0,0,0.12)", overflow: "hidden"
-                          }}
+                          className="contact__select-menu"
                         >
                           {serviceOptions.map(opt => (
                             <div
@@ -233,22 +221,13 @@ export default function Contact() {
                                 e.stopPropagation();
                                 setIsDropdownOpen(false);
                                 
-                                // Set the service, and also optionally pre-fill the message if they pick a valid service
                                 if (opt.value && serviceMessages[opt.value]) {
                                   setForm(prev => ({ ...prev, service: opt.value, message: serviceMessages[opt.value] }));
                                 } else {
                                   setForm(prev => ({ ...prev, service: opt.value }));
                                 }
                               }}
-                              style={{
-                                padding: "12px 14px", cursor: "pointer", fontSize: 13.5,
-                                color: form.service === opt.value ? "var(--blue-primary)" : "var(--text-dark)",
-                                background: form.service === opt.value ? "rgba(31, 88, 130, 0.05)" : "transparent",
-                                transition: "background 0.15s",
-                                borderBottom: opt.value === "" ? "1px solid #e2e8f0" : "none"
-                              }}
-                              onMouseEnter={(e) => { if (form.service !== opt.value) e.currentTarget.style.background = "#f8fafc" }}
-                              onMouseLeave={(e) => { if (form.service !== opt.value) e.currentTarget.style.background = "transparent" }}
+                              className={`contact__select-item ${form.service === opt.value ? "selected" : ""}`}
                             >
                               {opt.label}
                             </div>

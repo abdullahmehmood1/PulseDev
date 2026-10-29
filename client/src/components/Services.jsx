@@ -121,146 +121,59 @@ export default function Services() {
   const svc = services[active];
 
   return (
-    <section id="services" style={{
-      background: "linear-gradient(180deg, #0b1526 0%, #0b1526 65%, #e9eff6 65%, #e9eff6 100%)",
-      padding: "90px 0 60px",
-    }}>
+    <section id="services" className="services-section">
       {/* ── Section Header ── */}
       <div className="services__header-grid page-content__inner">
         <div>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            fontFamily: "Inter, sans-serif",
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "#6b829e",
-            marginBottom: 14,
-          }}>
-            <span style={{ display: "block", width: 36, height: 2, background: "#3b82f6", flexShrink: 0 }} />
+          <div className="services__header-eyebrow">
+            <span className="services__eyebrow-line" />
             WHAT WE DO
           </div>
 
-          <h2 style={{
-            fontFamily: "Oswald, sans-serif",
-            fontSize: "clamp(34px, 4.8vw, 62px)",
-            fontWeight: 700,
-            textTransform: "uppercase",
-            color: "#ffffff",
-            lineHeight: 0.98,
-            letterSpacing: "0.01em",
-          }}>
+          <h2 className="services__header-title">
             COMPLETE SOFTWARE<br />SOLUTIONS
           </h2>
         </div>
 
-        <p style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: 15,
-          color: "#94a3b8",
-          lineHeight: 1.7,
-          maxWidth: 500,
-        }}>
+        <p className="services__header-desc">
           From web applications to cloud infrastructure and ongoing support, PulseDev brings
           the equipment, experience, and crew to get it done right.
         </p>
       </div>
 
-      {/* ── Outer Silver Frame ── */}
+      {/* ── Outer Frame ── */}
       <div className="page-content__inner">
         <div className="services__frame">
 
           {/* ── COLUMN 1: Tabs ── */}
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 10,
-          }}>
+          <div className="services__tabs">
             {services.map((s, i) => {
               const isActive = active === i;
               return (
                 <div
                   key={s.name}
                   onClick={() => setActive(i)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 14,
-                    padding: "16px 18px",
-                    borderRadius: 14,
-                    cursor: "pointer",
-                    background: isActive
-                      ? "linear-gradient(180deg, #154169 0%, #0e3050 100%)"
-                      : "#0d1827",
-                    border: isActive
-                      ? "2px solid #2d82c4"
-                      : "1px solid #1a2a3f",
-                    boxShadow: isActive
-                      ? "0 4px 18px rgba(45, 130, 196, 0.35)"
-                      : "none",
-                    transition: "all 0.2s ease",
-                    position: "relative",
-                  }}
+                  className={`services__tab ${isActive ? "active" : ""}`}
                 >
-                  <div style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: "50%",
-                    border: isActive ? "1px solid rgba(255,255,255,0.4)" : "1px solid #20334d",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: isActive ? "#ffffff" : "#64748b",
-                    background: isActive ? "rgba(255,255,255,0.12)" : "#132338",
-                    flexShrink: 0,
-                  }}>
+                  <div className="services__tab-icon">
                     {s.icon}
                   </div>
 
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{
-                      fontFamily: "Oswald, sans-serif",
-                      fontSize: 9,
-                      fontWeight: 600,
-                      letterSpacing: "0.15em",
-                      textTransform: "uppercase",
-                      color: isActive ? "#90c3eb" : "#64748b",
-                      marginBottom: 2,
-                    }}>
+                  <div className="services__tab-info">
+                    <div className="services__tab-num">
                       {s.num}
                     </div>
-                    <div style={{
-                      fontFamily: "Oswald, sans-serif",
-                      fontSize: 16,
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      color: "#ffffff",
-                      letterSpacing: "0.03em",
-                      lineHeight: 1.1,
-                      marginBottom: 3,
-                    }}>
+                    <div className="services__tab-name">
                       {s.name}
                     </div>
-                    <div style={{
-                      fontSize: 11,
-                      color: isActive ? "#cbd5e1" : "#475569",
-                      fontWeight: 500,
-                    }}>
+                    <div className="services__tab-sub">
                       {s.sub}
                     </div>
                   </div>
 
                   <TbArrowRight
                     size={16}
-                    style={{
-                      color: isActive ? "#3b9ee8" : "#334155",
-                      flexShrink: 0,
-                      transform: isActive ? "translateX(3px)" : "none",
-                      transition: "transform 0.2s ease",
-                    }}
+                    className="services__tab-arrow"
                   />
                 </div>
               );
@@ -268,13 +181,7 @@ export default function Services() {
           </div>
 
           {/* ── COLUMN 2: Image ── */}
-          <div style={{
-            borderRadius: 16,
-            overflow: "hidden",
-            position: "relative",
-            minHeight: 460,
-            background: "#0d1827",
-          }}>
+          <div className="services__image-container">
             <AnimatePresence>
               <motion.img
                 key={svc.img}
@@ -295,33 +202,8 @@ export default function Services() {
               />
             </AnimatePresence>
 
-            <div style={{
-              position: "absolute",
-              bottom: 18,
-              left: 18,
-              background: "#0a1320",
-              borderRadius: 999,
-              padding: "8px 18px",
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              fontSize: 11,
-              fontFamily: "Oswald, sans-serif",
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "#ffffff",
-              boxShadow: "0 4px 16px rgba(0,0,0,0.5)",
-              border: "1px solid #1a2a3f",
-            }}>
-              <span style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                background: "#2563eb",
-                boxShadow: "0 0 8px #2563eb",
-                flexShrink: 0,
-              }} />
+            <div className="services__image-badge">
+              <span className="services__badge-dot" />
               {svc.caption}
             </div>
           </div>
@@ -331,75 +213,42 @@ export default function Services() {
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={svc.name}
+                className="services__detail-card"
                 initial={{ opacity: 0, x: 8 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -8 }}
                 transition={{ duration: 0.25 }}
-                style={{
-                  background: "#ffffff",
-                  borderRadius: 16,
-                  padding: "44px 38px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-                  height: "100%",
-                }}
               >
               <div>
-                <h3 style={{
-                  fontFamily: "Oswald, sans-serif",
-                  fontSize: "clamp(32px, 3.2vw, 44px)",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  color: "#0b1728",
-                  lineHeight: 1.0,
-                  marginBottom: 20,
-                  letterSpacing: "-0.01em",
-                }}>
+                <h3 className="services__detail-title">
                   {svc.name}
                 </h3>
 
-                <p style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: 14.5,
-                  color: "#475569",
-                  lineHeight: 1.7,
-                  marginBottom: 28,
-                }}>
+                <p className="services__detail-desc">
                   {svc.desc}
                 </p>
 
-                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12, marginBottom: 36 }}>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
                   {svc.checks.map((c) => (
                     <li
                       key={c}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 10,
-                        fontSize: 13.5,
-                        fontWeight: 700,
-                        color: "#0f233a",
-                        lineHeight: 1.4,
-                      }}
+                      className="services__check-item"
                     >
                       <TbCheck
-                        size={17}
-                        style={{
-                          color: "#1d4ed8",
-                          flexShrink: 0,
-                          marginTop: 1,
-                        }}
+                        size={18}
+                        className="services__check-icon"
                       />
-                      {c}
+                      <span className="services__check-text">{c}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Steel Navy Gradient Button with hover animation */}
-              <Link to={`/?service=${svc.id}#contact`} className="btn-primary" style={{ alignSelf: "flex-start" }}>
+              {/* Luminous Gradient Button */}
+              <Link
+                to={`/?service=${svc.id}#contact`}
+                className="btn-primary"
+              >
                 GET IN TOUCH <TbArrowRight size={14} />
               </Link>
             </motion.div>

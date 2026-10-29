@@ -25,13 +25,6 @@ const budgetRanges = [
   "$50,000+",
 ];
 
-const stepStyle = {
-  width: 28, height: 28, borderRadius: "50%",
-  background: "linear-gradient(180deg, #1f5882 0%, #133f61 100%)",
-  display: "flex", alignItems: "center", justifyContent: "center",
-  fontSize: 13, color: "#fff", fontWeight: 700, fontFamily: "Oswald, sans-serif",
-  flexShrink: 0,
-};
 
 const cardStyle = {
   background: "var(--navy-card)",
@@ -81,7 +74,7 @@ ${form.message}`,
           particleCount: 90, spread: 70, origin: { y: 0.6 },
           colors: ["#1f5882", "#3b9ee8", "#22c55e", "#60a5fa"],
         });
-      } catch {}
+      } catch { }
     } catch (err) {
       setErrorMsg(err.error || err.message || "Could not submit. Please try again.");
       setStatus("error");
@@ -158,9 +151,9 @@ ${form.message}`,
           <form onSubmit={handleSubmit} className="booking__form">
 
             {/* Step 1 */}
-            <div style={cardStyle} className="booking__card">
+            <div className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
-                <div style={stepStyle}>1</div>
+                <div className="booking-step-badge">1</div>
                 Select Primary Capability
               </h3>
               <p style={{ color: "var(--text-body)", fontSize: 13, marginBottom: 20 }}>
@@ -174,14 +167,7 @@ ${form.message}`,
                     <div
                       key={s.id}
                       onClick={() => setSelectedService(s.id)}
-                      style={{
-                        padding: "16px 18px",
-                        borderRadius: "var(--radius-sm)",
-                        border: active ? "2px solid #1f5882" : "1px solid var(--steel-border)",
-                        background: active ? "rgba(31,88,130,0.2)" : "var(--steel)",
-                        cursor: "pointer",
-                        transition: "all 0.2s",
-                      }}
+                      className={`booking-capability-card ${active ? "active" : ""}`}
                     >
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
                         <Icon style={{ fontSize: 22, color: active ? "var(--blue-accent)" : "var(--text-body)" }} />
@@ -198,9 +184,9 @@ ${form.message}`,
             </div>
 
             {/* Step 2 */}
-            <div style={cardStyle} className="booking__card">
+            <div className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
-                <div style={stepStyle}>2</div>
+                <div className="booking-step-badge">2</div>
                 Target Project Budget
               </h3>
               <p style={{ color: "var(--text-body)", fontSize: 13, marginBottom: 20 }}>
@@ -212,16 +198,7 @@ ${form.message}`,
                     type="button"
                     key={b}
                     onClick={() => setBudget(b)}
-                    style={{
-                      padding: "13px 16px",
-                      borderRadius: "var(--radius-sm)",
-                      border: budget === b ? "2px solid #1f5882" : "1px solid var(--steel-border)",
-                      background: budget === b ? "rgba(31,88,130,0.2)" : "var(--steel)",
-                      color: budget === b ? "var(--white)" : "var(--text-body)",
-                      fontFamily: "Oswald, sans-serif", fontSize: 13, fontWeight: 700,
-                      textTransform: "uppercase", letterSpacing: "0.05em",
-                      cursor: "pointer", transition: "all 0.2s",
-                    }}
+                    className={`booking-budget-btn ${budget === b ? "active" : ""}`}
                   >
                     {b}
                   </button>
@@ -230,9 +207,9 @@ ${form.message}`,
             </div>
 
             {/* Step 3 */}
-            <div style={cardStyle} className="booking__card">
+            <div className="booking__card">
               <h3 style={{ fontFamily: "Oswald, sans-serif", fontSize: 17, fontWeight: 700, textTransform: "uppercase", color: "var(--white)", marginBottom: 8, display: "flex", alignItems: "center", gap: 12, letterSpacing: "0.05em" }}>
-                <div style={stepStyle}>3</div>
+                <div className="booking-step-badge">3</div>
                 Contact &amp; Project Details
               </h3>
               <p style={{ color: "var(--text-body)", fontSize: 13, marginBottom: 24 }}>

@@ -627,7 +627,7 @@ export default function AdminPage() {
                     <div style={{
                       background: "var(--steel)", border: "1px solid var(--steel-border)",
                       borderRadius: "var(--radius-sm)", padding: 16, fontSize: 14,
-                      color: "rgba(255,255,255,0.8)", whiteSpace: "pre-wrap", lineHeight: 1.65,
+                      color: "var(--text-dark2)", whiteSpace: "pre-wrap", lineHeight: 1.65,
                     }}>
                       {item.message}
                     </div>

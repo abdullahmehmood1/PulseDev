@@ -107,7 +107,7 @@ export default function Pricing() {
               </div>
 
               {p.isOneTime && (
-                <div style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginTop: "-0.5rem", marginBottom: "1rem" }}>
+                <div className="pricing__onetime-label">
                   one-time project fee
                 </div>
               )}

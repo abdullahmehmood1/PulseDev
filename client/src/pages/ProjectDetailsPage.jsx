@@ -83,7 +83,7 @@ export default function ProjectDetailsPage() {
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
               <span style={{ fontSize: 13, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", marginRight: 8, width: "100%", display: "block" }}>Tech Stack:</span>
               {project.tech_stack?.map((tech, i) => (
-                <span key={i} className="tech-chip" style={{ fontSize: 12, padding: "6px 12px", background: "rgba(255,255,255,0.03)" }}>{tech}</span>
+                <span key={i} className="tech-chip" style={{ fontSize: 12, padding: "6px 12px" }}>{tech}</span>
               ))}
             </div>
           </motion.div>

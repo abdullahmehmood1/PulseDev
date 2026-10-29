@@ -25,8 +25,8 @@ export default function ParticleBackground({ theme }) {
     const particles = [];
 
     const isLight = theme === "light";
-    const particleColor = isLight ? "rgba(100, 116, 139, " : "rgba(148, 163, 184, ";
-    const lineColor = isLight ? "rgba(100, 116, 139, " : "rgba(148, 163, 184, ";
+    const particleColor = isLight ? "rgba(100, 116, 139, " : "rgba(56, 189, 248, ";
+    const lineColor = isLight ? "rgba(100, 116, 139, " : "rgba(56, 189, 248, ";
 
     for (let i = 0; i < numParticles; i++) {
       particles.push({

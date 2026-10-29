@@ -61,28 +61,15 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section style={{
-      background: "#ffffff",
-      padding: "40px 0",
-      borderBottom: "1px solid #e8eef4",
-    }}>
+    <section className="partners-section">
       <div className="page-content__inner">
-        {/* Title — exactly like BP Marine */}
+        {/* Title */}
         <motion.h2
+          className="partners-title"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          style={{
-            fontFamily: "Oswald, sans-serif",
-            fontSize: 18,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: "0.12em",
-            color: "#0d1526",
-            textAlign: "center",
-            marginBottom: 28,
-          }}
         >
           PulseDev Proudly Works With
         </motion.h2>
@@ -98,45 +85,14 @@ export default function Partners() {
           {partners.map((p, i) => (
             <motion.div
               key={p.name}
+              className="partners-pill"
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.06 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "14px 28px",
-                background: p.dark ? "#0d1526" : "#f8fafc",
-                border: "1px solid #e2e8f0",
-                borderRadius: 8,
-                minWidth: 140,
-                height: 68,
-                boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                transition: "box-shadow 0.2s",
-                cursor: "default",
-              }}
-              whileHover={{ boxShadow: "0 4px 16px rgba(0,0,0,0.12)" }}
             >
               {/* Text-based logo — clean, readable */}
-              <span style={{
-                fontFamily: p.name === "AWS" ? "Oswald, sans-serif" : "Inter, sans-serif",
-                fontSize: p.name === "AWS" ? 24 : 17,
-                fontWeight: 800,
-                letterSpacing: p.name === "AWS" ? "0.02em" : "0.01em",
-                color: p.name === "AWS"
-                  ? "#FF9900"
-                  : p.name === "Google Cloud"
-                  ? "#4285F4"
-                  : p.name === "MongoDB"
-                  ? "#00ED64"
-                  : p.name === "Stripe"
-                  ? "#635BFF"
-                  : p.dark
-                  ? "#f0f4f8"
-                  : "#0d1526",
-                lineHeight: 1,
-              }}>
+              <span className={`partner-brand partner-brand--${p.name.toLowerCase().replace(/\s+/g, '-')}`}>
                 {p.name}
               </span>
             </motion.div>
